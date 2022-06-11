@@ -2,10 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
 import { BrowserRouter } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#607d8b',
+        },
+    },
+});
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <ThemeProvider theme={theme}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </ThemeProvider>,
     document.getElementById('root')
 );
