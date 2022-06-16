@@ -17,9 +17,34 @@ const Movie = ({ movie, i }) => {
             xl={2}
             className={classes.movie}
         >
-            <Typography className={classes.title} variant="h5">
-                {movie.title}
-            </Typography>
+            <Grow in key={i} timeout={(i + 1) * 250}>
+                <Link className={classes.links} to={`/movie/${movie.id}`}>
+                    <img
+                        alt={movie.title}
+                        className={classes.image}
+                        src={
+                            movie.poster_path
+                                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                                : 'https://www.fillmurray.com/200/300'
+                        }
+                    />
+                    <Typography className={classes.title} variant="h5">
+                        {movie.title}
+                    </Typography>
+                    <Tooltip
+                        disableTouchListener
+                        title={`${movie.vote_average} / 10`}
+                    >
+                        <div>
+                            <Rating
+                                readyOnly
+                                value={movie.vote_average / 2}
+                                precision={0.1}
+                            />
+                        </div>
+                    </Tooltip>
+                </Link>
+            </Grow>
         </Grid>
     );
 };

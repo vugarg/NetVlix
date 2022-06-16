@@ -9,8 +9,8 @@ export default makeStyles((theme) => ({
         justifyContent: 'space-between',
         marginLeft: '240px',
         [theme.breakpoints.down('sm')]: {
-            marginLeft: '0px',
-            flexWrapp: 'wrap',
+            marginLeft: '0',
+            flexWrap: 'wrap',
         },
     },
     menuButton: {
@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
             flexShrink: 0,
         },
     },
-    drwaerPaper: {
+    drawerPaper: {
         width: drawerWidth,
     },
     linkButton: {
